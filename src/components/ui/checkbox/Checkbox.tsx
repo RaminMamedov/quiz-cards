@@ -1,7 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
-// @ts-ignore
 import { CheckIcon } from '@radix-ui/react-icons'
 
 import s from './Checkbox.module.scss'

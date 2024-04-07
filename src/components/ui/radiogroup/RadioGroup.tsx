@@ -9,18 +9,19 @@ type Option = {
   value: string
 }
 type RadioGroupProps = {
+  ariaLabel?: string
   defaultValue?: string
   disabled?: boolean
   options: Option[]
 } & ComponentPropsWithoutRef<'div'>
 
 export const RadioGroup = (props: RadioGroupProps) => {
-  const { defaultValue, disabled, options } = props
+  const { ariaLabel, defaultValue, disabled, options } = props
 
   return (
     <form>
       <RadioGroupRadix.Root
-        aria-label={'View density'}
+        aria-label={ariaLabel}
         className={s.radioGroupRoot}
         defaultValue={defaultValue}
       >
