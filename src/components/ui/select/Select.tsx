@@ -17,7 +17,7 @@ type SelectProps = {
   items: Item[]
   placeholder?: string
   title?: string
-} & ComponentPropsWithoutRef<'button'>
+} & ComponentPropsWithoutRef<typeof SelectRadix.Root>
 
 type SelectItemProps = {
   children: ReactNode
