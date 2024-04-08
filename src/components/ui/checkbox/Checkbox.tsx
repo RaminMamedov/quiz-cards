@@ -1,19 +1,29 @@
-import { ComponentPropsWithoutRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, ForwardRefRenderFunction, forwardRef } from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import { CheckIcon } from '@radix-ui/react-icons'
 
 import s from './Checkbox.module.scss'
 
-type CheckboxProps = {
-  checked?: boolean
-  disabled?: boolean
-  id?: string
-  title?: string
-} & ComponentPropsWithoutRef<'button'>
+export type CheckboxProps = {
+  errorMessage?: string
+  label?: string
+} & ComponentPropsWithoutRef<typeof CheckboxRadix.Root>
 
-export const Checkbox = (props: CheckboxProps) => {
-  const { checked, disabled, id, title } = props
+const CheckboxComponent: ForwardRefRenderFunction<
+  ElementRef<typeof CheckboxRadix.Root>,
+  CheckboxProps
+> = (props, ref) => {
+  const {
+    checked = false,
+    disabled,
+    errorMessage,
+    id,
+    label,
+    name,
+    onCheckedChange,
+    ...rest
+  } = props
 
   return (
     <form>
@@ -22,7 +32,11 @@ export const Checkbox = (props: CheckboxProps) => {
           className={disabled ? `${s.checkboxRoot} ${s.borderDisabled}` : s.checkboxRoot}
           defaultChecked={checked}
           disabled={disabled}
-          id={id}
+          id={name}
+          name={name}
+          onCheckedChange={onCheckedChange}
+          ref={ref}
+          {...rest}
         >
           <CheckboxRadix.Indicator
             className={
@@ -32,10 +46,15 @@ export const Checkbox = (props: CheckboxProps) => {
             <CheckIcon />
           </CheckboxRadix.Indicator>
         </CheckboxRadix.Root>
-        <label className={disabled ? s.labelDisabled : ''} htmlFor={id}>
-          {title}
+        <label className={disabled ? s.labelDisabled : ''} htmlFor={name}>
+          {label}
         </label>
+        {errorMessage && <h3>{errorMessage}</h3>}
       </div>
     </form>
   )
 }
+
+export const Checkbox = forwardRef<ElementRef<typeof CheckboxRadix.Root>, CheckboxProps>(
+  CheckboxComponent
+)

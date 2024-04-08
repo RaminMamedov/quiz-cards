@@ -10,7 +10,7 @@ button {
 
   width: 15px;
   height: 15px;
-  margin: 12px;
+  margin: 12px 0;
 
   font-family: inherit;
 
@@ -97,6 +97,8 @@ svg {
 }
 
 label {
+  margin-left: 12px;
+
   &:hover {
     cursor: pointer;
   }

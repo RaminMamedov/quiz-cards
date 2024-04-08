@@ -40,20 +40,20 @@ export const CheckboxUncheckedDisabled: Story = {
   },
 }
 
-export const CheckboxWithTitle: Story = {
+export const CheckboxWithLabel: Story = {
   args: {
     checked: true,
     disabled: false,
     id: 'c1',
-    title: 'Check-box with title',
+    label: 'Check-box with title',
   },
 }
 
-export const CheckboxWithTitleDisabled: Story = {
+export const CheckboxWithLabelDisabled: Story = {
   args: {
     checked: true,
     disabled: true,
     id: 'c1',
-    title: 'Check-box with title disabled',
+    label: 'Check-box with title disabled',
   },
 }
