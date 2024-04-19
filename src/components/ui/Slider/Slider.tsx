@@ -1,7 +1,8 @@
-import { Typography } from '@/components/ui/typography'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 import s from './Slider.module.scss'
+
+import { Typography } from '../Typography'
 
 type SliderProps = {
   max?: number

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
 
-import { Input } from '@/components/ui/input/Input'
+import { Input } from '@/components/ui/Input/Input'
 
 const meta = {
   component: Input,
