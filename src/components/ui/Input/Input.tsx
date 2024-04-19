@@ -4,10 +4,11 @@ import CloseOutline from '@/assets/icons/CloseOutline'
 import EyeOffOutline from '@/assets/icons/EyeOffOutline'
 import EyeOutline from '@/assets/icons/EyeOutline'
 import SearchOutline from '@/assets/icons/SearchOutline'
-import { Typography } from '@/components/ui/typography'
 import { clsx } from 'clsx'
 
 import s from './Input.module.scss'
+
+import { Typography } from '../Typography'
 
 export type InputProps = {
   errorMessage?: string

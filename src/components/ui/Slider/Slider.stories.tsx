@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Slider } from '@/components/ui/slider/Slider'
+import { Slider } from '@/components/ui/Slider/Slider'
 
 const meta = {
   argTypes: {},
