@@ -9,7 +9,7 @@ export const ControlledInput = <T extends FieldValues>({
   control,
   name,
   ...restProps
-}: ControlledInputProps<T>): JSX.Element => {
+}: ControlledInputProps<T>) => {
   const {
     field,
     fieldState: { error },
