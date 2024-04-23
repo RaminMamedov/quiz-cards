@@ -7,7 +7,7 @@ import PersonOutline from '@/assets/icons/PersonOutline'
 import PlayCircleOutline from '@/assets/icons/PlayCircleOutline'
 import TrashOutline from '@/assets/icons/TrashOutline'
 import { Avatar } from '@/components/ui/Avatar'
-import { Typography } from '@/components/ui/typography'
+import { Typography } from '@/components/ui/Typography/Typography'
 
 import s from './DropDown.module.scss'
 
@@ -26,7 +26,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const userData = {
-  avatar: '',
   email: 'frontend-dev@gmail.com',
   name: 'Ramin',
 }
@@ -38,11 +37,11 @@ export const WithUser: Story = {
         <DropDownItem asChild>
           <div className={s.photoAndEmail}>
             <Avatar size={'small'} userName={userData.name} />
-            <div className={s.nameAndEmail}>
-              <Typography as={'div'} className={s.userName} variant={'subtitle2'}>
+            <div>
+              <Typography as={'div'} variant={'subtitle2'}>
                 {userData.name}
               </Typography>
-              <Typography as={'div'} className={s.userEmail} variant={'caption'}>
+              <Typography as={'div'} variant={'caption'}>
                 {userData.email}
               </Typography>
             </div>
@@ -52,14 +51,14 @@ export const WithUser: Story = {
         <DropDownItem asChild>
           <Typography as={'div'} variant={'caption'}>
             <PersonOutline />
-            <div>My Profile</div>
+            My Profile
           </Typography>
         </DropDownItem>
         <DropDownSeparator />
         <DropDownItem asChild>
           <Typography as={'div'} variant={'caption'}>
             <LogOutOutline />
-            <div>Sign Out</div>
+            Sign Out
           </Typography>
         </DropDownItem>
       </>
@@ -74,21 +73,21 @@ export const WithOutUser: Story = {
         <DropDownItem asChild>
           <Typography as={'div'} variant={'caption'}>
             <PlayCircleOutline />
-            <div>Learn</div>
+            Learn
           </Typography>
         </DropDownItem>
         <DropDownSeparator />
         <DropDownItem asChild>
           <Typography as={'div'} variant={'caption'}>
             <EditOutline />
-            <div>Edit</div>
+            Edit
           </Typography>
         </DropDownItem>
         <DropDownSeparator />
         <DropDownItem asChild>
           <Typography as={'div'} variant={'caption'}>
             <TrashOutline />
-            <div>Delete</div>
+            Delete
           </Typography>
         </DropDownItem>
       </>
