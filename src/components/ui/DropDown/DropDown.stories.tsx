@@ -7,13 +7,12 @@ import PersonOutline from '@/assets/icons/PersonOutline'
 import PlayCircleOutline from '@/assets/icons/PlayCircleOutline'
 import TrashOutline from '@/assets/icons/TrashOutline'
 import { Avatar } from '@/components/ui/Avatar'
+import { DropDownItem } from '@/components/ui/DropDown/DropDownItem'
+import { DropDownMenu } from '@/components/ui/DropDown/DropDownMenu'
+import { DropDownSeparator } from '@/components/ui/DropDown/DropDownSeparator'
 import { Typography } from '@/components/ui/Typography'
 
 import s from './DropDown.module.scss'
-
-import { DropDownItem } from './DropDownItem'
-import { DropDownMenu } from './DropDownMenu'
-import { DropDownSeparator } from './DropDownSeparator'
 
 const meta = {
   component: DropDownMenu,
