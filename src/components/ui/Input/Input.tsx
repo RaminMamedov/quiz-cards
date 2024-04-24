@@ -49,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {label}
           </Typography>
         )}
-        <div className={s.container} tabIndex={0}>
+        <div className={s.container}>
           <input
             {...rest}
             className={classNames.input}
