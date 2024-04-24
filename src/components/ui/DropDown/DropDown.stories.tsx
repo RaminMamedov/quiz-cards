@@ -7,7 +7,7 @@ import PersonOutline from '@/assets/icons/PersonOutline'
 import PlayCircleOutline from '@/assets/icons/PlayCircleOutline'
 import TrashOutline from '@/assets/icons/TrashOutline'
 import { Avatar } from '@/components/ui/Avatar'
-import { Typography } from '@/components/ui/Typography/Typography'
+import { Typography } from '@/components/ui/Typography'
 
 import s from './DropDown.module.scss'
 
