@@ -7,7 +7,7 @@ import PersonOutline from '@/assets/icons/PersonOutline'
 import { UserDropDown } from '@/components/layout/UserDropDown/UserDropDown'
 import { Avatar } from '@/components/ui/Avatar'
 import { DropDownItem, DropDownMenu, DropDownSeparator } from '@/components/ui/DropDown'
-import { Typography } from '@/components/ui/Typography/Typography'
+import { Typography } from '@/components/ui/Typography'
 
 import s from './UserDropDown.module.scss'
 

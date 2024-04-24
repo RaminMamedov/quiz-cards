@@ -6,7 +6,7 @@ import { Avatar } from '@/components/ui/Avatar'
 import { DropDownItem } from '@/components/ui/DropDown/DropDownItem'
 import { DropDownMenu } from '@/components/ui/DropDown/DropDownMenu'
 import { DropDownSeparator } from '@/components/ui/DropDown/DropDownSeparator'
-import { Typography } from '@/components/ui/Typography/Typography'
+import { Typography } from '@/components/ui/Typography'
 
 import s from './UserDropDown.module.scss'
 
