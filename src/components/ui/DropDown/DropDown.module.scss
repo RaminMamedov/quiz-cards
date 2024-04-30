@@ -1,5 +1,6 @@
 .trigger {
   all: unset;
+  border-radius: 50%;
 
   cursor: pointer;
 
@@ -12,13 +13,12 @@
   transition: opacity 0.2s ease-in-out;
 
   &:hover {
-    opacity: 0.7;
+    box-shadow: 0 0 15px var(--color-accent-100);
   }
 }
 
 .content {
   position: relative;
-  transform: translateX(-40%);
 
   display: flex;
   flex-direction: column;
@@ -57,9 +57,16 @@
   justify-content: flex-start;
 
   outline: none;
+  border-radius: 3px;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-info-100);
+    border-radius: 3px;
+    outline-offset: 2px;
   }
 }
 
