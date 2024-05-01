@@ -1,4 +1,4 @@
-import { Avatar } from '@/components/ui/Avatar/Avatar'
+import { Avatar } from '@/components/ui/Avatar'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Avatar> = {
@@ -8,8 +8,11 @@ const meta: Meta<typeof Avatar> = {
       description: 'Size of the avatar',
       options: ['small', 'large'],
     },
-    src: { description: 'Image URL for the avatar', type: 'string' },
     userName: { description: 'User name for the avatar', type: 'string' },
+    image: {
+      control: 'text',
+      description: 'URL of the avatar image',
+    },
   },
   component: Avatar,
   tags: ['autodocs'],
@@ -22,6 +25,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     userName: 'Ramin',
+  },
+}
+
+export const DefaultWithPhoto: Story = {
+  args: {
+    userName: 'Ramin',
+    image: 'https://mediaaid.ru/upload/resize_cache/iblock/f26/375_264_2/7.jpg',
   },
 }
 
