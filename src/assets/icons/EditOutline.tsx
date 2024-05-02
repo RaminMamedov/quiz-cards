@@ -38,7 +38,6 @@ const EditOutline = (allProps: IconProps, ref: Ref<SVGSVGElement>) => {
         </svg>
       }
       {...restProps}
-      size={1.25}
     />
   )
 }

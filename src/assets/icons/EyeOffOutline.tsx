@@ -10,10 +10,10 @@ const EyeOffOutline = (allProps: IconProps, ref: Ref<SVGSVGElement>) => {
       icon={
         <svg
           fill={'currentColor'}
-          height={'100%'}
+          height={'24'}
           ref={ref}
           viewBox={'0 0 24 24'}
-          width={'100%'}
+          width={'24'}
           xmlns={'http://www.w3.org/2000/svg'}
         >
           <g clipPath={'url(#clip0_5661_1736)'}>
@@ -44,7 +44,6 @@ const EyeOffOutline = (allProps: IconProps, ref: Ref<SVGSVGElement>) => {
         </svg>
       }
       {...restProps}
-      size={1.25}
     />
   )
 }
