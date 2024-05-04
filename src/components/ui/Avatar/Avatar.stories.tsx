@@ -3,16 +3,16 @@ import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Avatar> = {
   argTypes: {
+    image: {
+      control: 'text',
+      description: 'URL of the avatar image',
+    },
     size: {
       control: 'select',
       description: 'Size of the avatar',
       options: ['small', 'large'],
     },
     userName: { description: 'User name for the avatar', type: 'string' },
-    image: {
-      control: 'text',
-      description: 'URL of the avatar image',
-    },
   },
   component: Avatar,
   tags: ['autodocs'],
@@ -30,8 +30,8 @@ export const Default: Story = {
 
 export const DefaultWithPhoto: Story = {
   args: {
-    userName: 'Ramin',
     image: 'https://mediaaid.ru/upload/resize_cache/iblock/f26/375_264_2/7.jpg',
+    userName: 'Ramin',
   },
 }
 
