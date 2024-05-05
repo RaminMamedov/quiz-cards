@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
+import {Input} from "@/components/ui/Input/Input";
 
-import { Input } from '@/components/ui/Input/Input'
+
 
 const meta = {
   component: Input,
@@ -21,8 +22,7 @@ export const Default = {
       <Input
         label={'Input'}
         name={'email'}
-        onChange={e => setState(e.currentTarget.value)}
-        onClearInput={() => setState('')}
+        onChange={e => setState(e.target.value)}
         placeholder={'Placeholder'}
         value={state}
       />
@@ -37,8 +37,7 @@ export const Password = {
     return (
       <Input
         label={'Input'}
-        onChange={e => setState(e.currentTarget.value)}
-        onClearInput={() => setState('')}
+        onChange={e => setState(e.target.value)}
         placeholder={'Placeholder'}
         type={'password'}
         value={state}
@@ -53,9 +52,9 @@ export const Search = {
 
     return (
       <Input
-        label={'Input'}
-        onChange={e => setState(e.currentTarget.value)}
-        onClearInput={() => setState('')}
+        label={'Input search'}
+        onChange={e => setState(e.target.value)}
+        onClearClick={() => {setState('')}}
         placeholder={'Input search'}
         type={'search'}
         value={state}

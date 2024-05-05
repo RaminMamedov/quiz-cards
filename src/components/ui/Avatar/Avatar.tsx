@@ -1,4 +1,4 @@
-import {ComponentPropsWithoutRef, forwardRef} from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
 import { clsx } from 'clsx'
@@ -7,7 +7,7 @@ import s from './Avatar.module.scss'
 
 export type AvatarProps = {
   image?: string
-  size?: 'small' | 'large'
+  size?: 'large' | 'small'
   userName: string
 } & ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 
@@ -35,7 +35,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
           />
         ) : (
           <AvatarPrimitive.Fallback className={classNames.fallback}>
-              {initials}
+            {initials}
           </AvatarPrimitive.Fallback>
         )}
       </AvatarPrimitive.Root>
