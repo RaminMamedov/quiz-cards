@@ -49,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const classNames = {
       input: clsx(s.input, isSearchType && s.search, errorMessage && s.error),
-      label: clsx(s.inputLabel, rest.disabled && s.disabled),
+      label: clsx(s.label, rest.disabled && s.disabled),
       root: clsx(s.root, className),
       searchIcon: s.searchIcon,
     }
