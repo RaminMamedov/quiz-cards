@@ -46,6 +46,7 @@ export const CheckboxWithLabel: Story = {
     disabled: false,
     id: 'c1',
     label: 'Check-box with title',
+    name: 'c1',
   },
 }
 
@@ -55,5 +56,6 @@ export const CheckboxWithLabelDisabled: Story = {
     disabled: true,
     id: 'c1',
     label: 'Check-box with title disabled',
+    name: 'c1',
   },
 }
