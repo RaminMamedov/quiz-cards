@@ -20,7 +20,7 @@ button {
   height: 34px;
   padding: 0 12px;
 
-  font-size: 16px;
+  font-size: var(--font-size-m);
   color: var(--color-light-100);
 
   background-color: transparent;
