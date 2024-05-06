@@ -2,9 +2,15 @@
   display: flex;
   flex-direction: column;
 
-  .inputLabel {
+  .label {
+    display: inline-block;
     margin-bottom: 1px;
+    max-width: max-content;
     color: var(--color-dark-100);
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &.disabled {
       color: var(--color-dark-300);
