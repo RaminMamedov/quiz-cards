@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import CloseOutline from '@/assets/icons/CloseOutline'
+import LogOutOutline from '@/assets/icons/LogOutOutline'
+import TrashOutline from '@/assets/icons/TrashOutline'
 import { Button } from '@/components/ui/Button/Button'
-import { Icon } from '@/components/ui/Icon'
 
 const meta = {
   argTypes: {
@@ -30,8 +32,21 @@ export const PrimaryIcon: Story = {
   args: {
     children: (
       <>
-        <Icon iconId={'logout'} />
+        <LogOutOutline />
         Button Primary Icon
+      </>
+    ),
+    disabled: false,
+    variant: 'primary',
+  },
+}
+
+export const PrimaryDeleteIcon: Story = {
+  args: {
+    children: (
+      <>
+        <TrashOutline />
+        Button Primary Delete Icon
       </>
     ),
     disabled: false,
@@ -77,7 +92,20 @@ export const SecondaryIcon: Story = {
   args: {
     children: (
       <>
-        <Icon iconId={'logout'} />
+        <LogOutOutline />
+        Button Secondary Icon
+      </>
+    ),
+    disabled: false,
+    variant: 'secondary',
+  },
+}
+
+export const SecondaryCloseIcon: Story = {
+  args: {
+    children: (
+      <>
+        <CloseOutline />
         Button Secondary Icon
       </>
     ),
