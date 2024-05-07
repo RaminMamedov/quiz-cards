@@ -39,7 +39,7 @@ export const SignIn = () => {
         <Input className={s.input} label={'Password'} {...register('password')} type={'password'} />
         <ControlledCheckbox control={control} label={'Remember me'} name={'rememberMe'} />
         <div className={s.forgotLink}>
-          <Typography as={'a'} href={'/forgot'} variant={'body2'}>
+          <Typography as={'a'} href={'/recover-password'} variant={'body2'}>
             Forgot password?
           </Typography>
         </div>
@@ -51,7 +51,7 @@ export const SignIn = () => {
         <Typography className={s.account} variant={'body2'}>
           Don`t have an account?
         </Typography>
-        <Typography as={'a'} className={s.signupLink} href={'/signup'} variant={'body2'}>
+        <Typography as={'a'} className={s.signupLink} href={'/sign-up'} variant={'body2'}>
           Sign Up
         </Typography>
       </form>
