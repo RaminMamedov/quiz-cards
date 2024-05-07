@@ -3,10 +3,10 @@
 
   cursor: pointer;
 
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
 
   box-sizing: border-box;
-  margin: 10px 10px 0 0;
   padding: 6px 28px;
 
   font-size: var(--font-size-s);
@@ -26,8 +26,11 @@
 .button svg {
   width: 16px;
   height: 16px;
-  margin-right: 10px;
-  vertical-align: text-top;
+}
+
+.button span {
+  margin-top: 3.5px;
+  margin-right: 6px;
 }
 
 .primary {
@@ -72,6 +75,4 @@
 
 .fullWidth {
   width: 100%;
-  margin: 0;
-  text-align: center;
 }
