@@ -44,9 +44,7 @@ export const SignIn = () => {
           </Typography>
         </div>
         <Button fullWidth type={'submit'}>
-          <Typography as={'span'} variant={'subtitle2'}>
-            Sign in
-          </Typography>
+          Sign in
         </Button>
         <Typography className={s.account} variant={'body2'}>
           Don`t have an account?
