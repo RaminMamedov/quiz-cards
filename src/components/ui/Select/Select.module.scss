@@ -48,6 +48,14 @@ button {
     background-color: transparent;
     border: 1px solid var(--color-dark-300);
   }
+
+  &.small {
+    gap: 2px;
+    height: 24px;
+    width: 52px;
+    padding: 0 2px 0 8px;
+    font-size: var(--font-size-s);
+  }
 }
 
 .selectTriggerOpen {
@@ -83,6 +91,12 @@ button {
   border: 1px solid var(--color-dark-300);
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
+
+  &.small {
+    height: 24px;
+    width: 63px;
+    font-size: var(--font-size-s);
+  }
 }
 
 .selectViewportOpen {
@@ -101,6 +115,11 @@ button {
   padding: 0 12px;
 
   outline: none;
+
+  &.small {
+    padding: 0 0.4rem;
+    font-size: var(--font-size-s);
+  }
 }
 
 .selectItem[data-highlighted] {

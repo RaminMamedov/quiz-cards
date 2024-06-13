@@ -2,7 +2,7 @@ import React, { ComponentPropsWithoutRef, ReactNode, RefAttributes, useState } f
 
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
 import * as SelectRadix from '@radix-ui/react-select'
-import classnames from 'classnames'
+import { clsx } from 'clsx'
 
 import s from './Select.module.scss'
 
@@ -11,24 +11,33 @@ type Item = {
   value: string
 }
 
-type SelectProps = {
+export type SelectProps = {
   ariaLabel?: string
   disabled?: boolean
   items: Item[]
   placeholder?: string
+  small?: boolean
   title?: string
+  value: string
 } & ComponentPropsWithoutRef<typeof SelectRadix.Root>
 
 type SelectItemProps = {
   children: ReactNode
   className?: string
   disabled?: boolean
+  small?: boolean
   value: string
 }
 
 export const Select = (props: SelectProps) => {
-  const { ariaLabel, disabled, items, placeholder, title } = props
+  const { ariaLabel, disabled, items, placeholder, small, title, value, onValueChange } = props
   const [open, setOpen] = useState(false)
+
+  const classNames = {
+    item: clsx(s.selectItem, small && s.small),
+    trigger: clsx(s.selectTrigger, { [s.selectTriggerOpen]: open }, small && s.small),
+    viewport: clsx(s.selectViewport, { [s.selectViewportOpen]: open }, small && s.small),
+  }
 
   return (
     <>
@@ -37,10 +46,12 @@ export const Select = (props: SelectProps) => {
         onOpenChange={() => {
           setOpen(!open)
         }}
+        value={value}
+        onValueChange={onValueChange}
       >
         <SelectRadix.Trigger
           aria-label={ariaLabel}
-          className={open ? `${s.selectTrigger} ${s.selectTriggerOpen}` : s.selectTrigger}
+          className={classNames.trigger}
           disabled={disabled}
         >
           <SelectRadix.Value placeholder={placeholder} />
@@ -50,9 +61,7 @@ export const Select = (props: SelectProps) => {
         </SelectRadix.Trigger>
         <SelectRadix.Portal>
           <SelectRadix.Content className={s.selectContent} position={'popper'}>
-            <SelectRadix.Viewport
-              className={open ? `${s.selectViewport} ${s.selectViewportOpen}` : s.selectViewport}
-            >
+            <SelectRadix.Viewport className={classNames.viewport}>
               <SelectRadix.Group>
                 {items.map(i => (
                   <SelectItem key={i.value} value={i.value}>
@@ -69,15 +78,15 @@ export const Select = (props: SelectProps) => {
 }
 const SelectItem = React.forwardRef(
   (
-    { children, className, ...props }: SelectItemProps & RefAttributes<HTMLDivElement>,
+    { children, className, small, ...props }: SelectItemProps & RefAttributes<HTMLDivElement>,
     forwardedRef: React.LegacyRef<HTMLDivElement> | undefined
   ) => {
+    const classNames = {
+      item: clsx(s.selectItem, { [s.small]: small }),
+    }
+
     return (
-      <SelectRadix.Item
-        className={classnames(s.selectItem, className)}
-        {...props}
-        ref={forwardedRef}
-      >
+      <SelectRadix.Item className={classNames.item} {...props} ref={forwardedRef}>
         <SelectRadix.ItemText>{children}</SelectRadix.ItemText>
       </SelectRadix.Item>
     )

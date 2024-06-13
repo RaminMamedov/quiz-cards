@@ -76,13 +76,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <div className={s.container}>
           <input
             {...rest}
-            value={value}
             className={classNames.input}
             id={inputId}
             onChange={onChangeValueHandler}
             onKeyDown={onKeyPressHandler}
             ref={ref}
             type={inputType}
+            value={value}
           />
           {isPasswordType && (
             <button className={s.button} disabled={rest.disabled} onClick={toggleShowPassword}>
