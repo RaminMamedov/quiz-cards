@@ -25,6 +25,7 @@ export const SelectBoxEnabled: Story = {
     items: selectExampleArray,
     placeholder: 'Select-box',
     title: 'Select-box-title',
+    value: 'first',
   },
 }
 
@@ -34,5 +35,6 @@ export const SelectBoxDisabled: Story = {
     items: selectExampleArray,
     placeholder: 'Select-box',
     title: 'Select-box-title',
+    value: 'first',
   },
 }
