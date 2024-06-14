@@ -1,11 +1,17 @@
+import React from 'react'
+import { Provider } from 'react-redux'
 
-import { Decks } from '@/pages/decks'
+import { store } from '@/services/store'
 
-export function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      <Header email={'frontend-dev@gmail.com'} isLoggedIn={true} onLogout={() => {}} userName={'Ramin'} />
-      <Decks />
-    </div>
+    <Provider store={store}>
+      <div className={'App'}>
+        <h1>Decks</h1>
+        <div></div>
+      </div>
+    </Provider>
   )
 }
+
+export default App
