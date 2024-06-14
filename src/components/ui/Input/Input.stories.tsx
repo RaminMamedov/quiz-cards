@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
-import {Input} from "@/components/ui/Input/Input";
 
-
+import { Input } from '@/components/ui/Input/Input'
 
 const meta = {
   component: Input,
@@ -54,7 +53,9 @@ export const Search = {
       <Input
         label={'Input search'}
         onChange={e => setState(e.target.value)}
-        onClearClick={() => {setState('')}}
+        onClearClick={() => {
+          setState('')
+        }}
         placeholder={'Input search'}
         type={'search'}
         value={state}
