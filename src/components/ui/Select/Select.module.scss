@@ -16,7 +16,6 @@ button {
   align-items: center;
   justify-content: space-between;
 
-  width: 184px;
   height: 34px;
   padding: 0 12px;
 
@@ -85,7 +84,7 @@ button {
 .selectViewport {
   cursor: pointer;
 
-  width: 210px;
+  width: var(--radix-select-trigger-width);
 
   background-color: var(--color-dark-900);
   border: 1px solid var(--color-dark-300);
@@ -94,7 +93,7 @@ button {
 
   &.small {
     height: 24px;
-    width: 63px;
+    width: var(--radix-select-trigger-width);
     font-size: var(--font-size-s);
   }
 }
