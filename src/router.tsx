@@ -8,7 +8,7 @@ import {
 
 import { SignIn } from '@/components/auth/SignIn'
 import { useGetDecksQuery } from '@/services/decks/decksService'
-import App from '@/App'
+import { App } from '@/App'
 
 const publicRoutes: RouteObject[] = [
   {
