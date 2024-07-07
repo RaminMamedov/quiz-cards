@@ -1,42 +1,53 @@
+import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { RadioGroup } from '@/components/ui/RadioGroup/RadioGroup'
+import { Option, RadioGroup } from './'
 
 const meta = {
-  argTypes: {},
+  title: 'Components/Radio Group',
   component: RadioGroup,
   tags: ['autodocs'],
-  title: 'Components/RadioGroup',
 } satisfies Meta<typeof RadioGroup>
+
+const baseData: Option[] = [
+  { label: 'First', value: '1' },
+  { label: 'Second', value: '2' },
+  { label: 'Third', value: '3' },
+]
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const radioGroupExampleArray = [
-  { label: 'First value', value: 'first' },
-  { label: 'Second value', value: 'second' },
-  { label: 'Third value', value: 'third' },
-  { label: 'Fourth value', value: 'fourth' },
-  { label: 'Fifth value', value: 'fifth' },
-]
+export const DefaultControlledGroup: Story = {
+  render: args => {
+    const [value, setValue] = useState('1')
 
-export const RadioGroupBasic: Story = {
+    return (
+      <>
+        <RadioGroup {...args} value={value} onValueChange={setValue} />
+        <div style={{ marginTop: '10px' }}>Selected value: {value}</div>
+      </>
+    )
+  },
+
   args: {
-    options: radioGroupExampleArray,
+    options: baseData,
   },
 }
 
-export const RadioGroupDefaultValue: Story = {
+export const DisabledGroup: Story = {
   args: {
-    defaultValue: radioGroupExampleArray[1].value,
-    options: radioGroupExampleArray,
-  },
-}
-
-export const RadioGroupDisabled: Story = {
-  args: {
-    defaultValue: radioGroupExampleArray[0].value,
+    options: baseData,
+    value: '1',
     disabled: true,
-    options: radioGroupExampleArray,
+  },
+}
+
+export const GroupWithError: Story = {
+  args: {
+    options: baseData,
+    value: '1',
+    errorMessage: 'Some error occurred',
   },
 }
