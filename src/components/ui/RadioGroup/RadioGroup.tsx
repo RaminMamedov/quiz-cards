@@ -1,56 +1,44 @@
-import { ComponentPropsWithoutRef } from 'react'
+import { FC } from 'react'
 
+import * as RadioGr from '@radix-ui/react-radio-group'
+import { clsx } from 'clsx'
+
+import s from './radio-group.module.scss'
 import { Typography } from '@/components/ui/Typography'
-import * as RadioGroupRadix from '@radix-ui/react-radio-group'
 
-import s from './RadioGroup.module.scss'
-
-type Option = {
+export type Option = {
   label: string
   value: string
 }
-type RadioGroupProps = {
-  ariaLabel?: string
-  defaultValue?: string
-  disabled?: boolean
-  options: Option[]
-} & ComponentPropsWithoutRef<'div'>
 
-export const RadioGroup = (props: RadioGroupProps) => {
-  const { ariaLabel, defaultValue, disabled, options } = props
+export type RadioGroupProps = {
+  options: Option[]
+  name?: string
+  value?: string
+  onValueChange?: (value: string) => void
+  errorMessage?: string
+  disabled?: boolean
+}
+
+export const RadioGroup: FC<RadioGroupProps> = ({ options, errorMessage, ...rest }) => {
+  const labelClasses = clsx(s.item, rest.disabled && s.disabled)
 
   return (
-    <form>
-      <RadioGroupRadix.Root
-        aria-label={ariaLabel}
-        className={s.radioGroupRoot}
-        defaultValue={defaultValue}
-      >
-        {options?.map(option => {
-          return (
-            <div key={option.value} style={{ alignItems: 'center', display: 'flex' }}>
-              <RadioGroupRadix.Item
-                className={s.item}
-                disabled={disabled}
-                id={option.value}
-                value={option.value}
-              >
-                <RadioGroupRadix.Indicator
-                  className={disabled ? `${s.indicator} ${s.indicatorDisabled}` : s.indicator}
-                />
-              </RadioGroupRadix.Item>
-              <Typography
-                as={'label'}
-                className={disabled ? `${s.label} ${s.labelDisabled}` : s.label}
-                htmlFor={option.value}
-                variant={'body2'}
-              >
-                {option.label}
-              </Typography>
-            </div>
-          )
-        })}
-      </RadioGroupRadix.Root>
-    </form>
+    <RadioGr.Root aria-label={'Aria label'} {...rest} className={s.root}>
+      {options.map(el => (
+        <Typography as={'label'} variant={'body2'} key={el.value} className={labelClasses}>
+          <RadioGr.Item value={el.value} className={s.radio}>
+            <div className={s.frame}></div>
+            <RadioGr.Indicator className={s.indicator} />
+          </RadioGr.Item>
+          {el.label}
+        </Typography>
+      ))}
+      {errorMessage && (
+        <Typography variant={'caption'} className={s.error}>
+          {errorMessage}
+        </Typography>
+      )}
+    </RadioGr.Root>
   )
 }
