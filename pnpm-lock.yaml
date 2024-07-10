@@ -91,6 +91,9 @@ devDependencies:
   '@it-incubator/stylelint-config':
     specifier: ^1.0.3
     version: 1.0.3(stylelint-config-clean-order@5.2.0)(stylelint-config-standard-scss@12.0.0)(stylelint@16.3.1)
+  '@storybook/addon-actions':
+    specifier: ^8.2.1
+    version: 8.2.1(storybook@8.0.5)
   '@storybook/addon-essentials':
     specifier: ^8.0.5
     version: 8.0.5(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
@@ -3008,6 +3011,19 @@ packages:
       '@types/uuid': 9.0.8
       dequal: 2.0.3
       polished: 4.3.1
+      uuid: 9.0.1
+    dev: true
+
+  /@storybook/addon-actions@8.2.1(storybook@8.0.5):
+    resolution: {integrity: sha512-rosuPmufr41Uojjo1ok+1r2X3/qS4WvOn6Wc8SGos9oQZwCoIbRIABOg8sz41UatPKcYHF9sJKBy8l1NXCz6LQ==}
+    peerDependencies:
+      storybook: ^8.2.1
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.0.5(react-dom@18.2.0)(react@18.2.0)
       uuid: 9.0.1
     dev: true
 
