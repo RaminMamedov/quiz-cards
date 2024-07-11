@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 
 type ActionDialog = 'removeDeck' | 'removeCard'
 
-type DialogProps = {
+export type DialogProps = {
   trigger: ReactNode
   modalHeaderTitle: string
   itemName: string
@@ -43,15 +43,9 @@ export const Dialog = ({
         </Typography>
         <div className={s.buttonContainer}>
           <Button type="button" variant={'secondary'} onClick={onClose}>
-            <Typography variant={'subtitle2'} as="span">
-              Cancel
-            </Typography>
+            Cancel
           </Button>
-          <Button onClick={onButtonClickHandler}>
-            <Typography variant={'subtitle2'} as="span">
-              {buttonTitle}
-            </Typography>
-          </Button>
+          <Button onClick={onButtonClickHandler}>{buttonTitle}</Button>
         </div>
       </div>
     </ModalWindow>
