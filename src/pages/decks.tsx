@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
-import { ControlledCheckbox } from '@/components/ui/controlled/ControlledCheckbox/ControlledCheckbox'
-import { ControlledInput } from '@/components/ui/controlled/ControlledInput'
+import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox/ControlledCheckbox'
+import { ControlledInput } from '../components/controlled/ControlledInput'
 import {
   useCreateDeckMutation,
   useDeleteDeckMutation,

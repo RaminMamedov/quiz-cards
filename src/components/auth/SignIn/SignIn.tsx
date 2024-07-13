@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { Card } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
 import { Typography } from '@/components/ui/Typography'
-import { ControlledCheckbox } from '@/components/ui/controlled/ControlledCheckbox/ControlledCheckbox'
+import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox/ControlledCheckbox'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
