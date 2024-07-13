@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
 import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox/ControlledCheckbox'
-import { ControlledInput } from '../components/controlled/ControlledInput'
+import { ControlledInput } from '@/components/controlled/ControlledInput'
 import {
   useCreateDeckMutation,
   useDeleteDeckMutation,
