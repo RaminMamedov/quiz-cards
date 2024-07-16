@@ -1,31 +1,31 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
+import { RatingEmptyIcon } from '@/assets/icons/RatingEmptyIcon'
+import { RatingFilledIcon } from '@/assets/icons/RatingFilledIcon'
+import { clsx } from 'clsx'
+
 import s from './Rating.module.scss'
 
-import { clsx } from 'clsx'
-import { RatingFilledIcon } from '@/assets/icons/RatingFilledIcon'
-import { RatingEmptyIcon } from '@/assets/icons/RatingEmptyIcon'
-
 type Props = {
-  rating: number
-  maxRating?: number
-  size?: number
   className?: string
+  maxRating?: number
+  rating: number
+  size?: number
 } & ComponentPropsWithoutRef<'div'>
 
 export const Rating = forwardRef<ElementRef<'div'>, Props>(
-  ({ rating, maxRating = 5, size = 1.6, className, ...restProps }, ref): JSX.Element => {
+  ({ className, maxRating = 5, rating, size = 1.6, ...restProps }, ref): JSX.Element => {
     const stars = [...Array(maxRating)].map((_, index) => index + 1)
 
     const ratingClasses = clsx(s.root, className)
 
     return (
-      <div ref={ref} className={ratingClasses} {...restProps}>
+      <div className={ratingClasses} ref={ref} {...restProps}>
         {stars.map((star, index) => {
           return rating >= star ? (
-            <RatingFilledIcon key={index} color="var(--color-warning-300)" size={size} />
+            <RatingFilledIcon color={'var(--color-warning-300)'} key={index} size={size} />
           ) : (
-            <RatingEmptyIcon key={index} color="var(--color-warning-300)" size={size} />
+            <RatingEmptyIcon color={'var(--color-warning-300)'} key={index} size={size} />
           )
         })}
       </div>

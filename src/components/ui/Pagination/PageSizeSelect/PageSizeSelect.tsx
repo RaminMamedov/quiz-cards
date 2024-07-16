@@ -1,5 +1,6 @@
-import { Select } from '@/components/ui/Select'
 import { useCallback, useMemo } from 'react'
+
+import { Select } from '@/components/ui/Select'
 
 type PageSizeSelectProps = {
   onPageSizeChange: (size: number) => void
@@ -8,8 +9,8 @@ type PageSizeSelectProps = {
 }
 export const PageSizeSelect: React.FC<PageSizeSelectProps> = ({
   onPageSizeChange,
-  pageSizeOptions = [5, 10, 20, 30],
   pageSize = 5,
+  pageSizeOptions = [5, 10, 20, 30],
 }) => {
   const options = useMemo(
     () =>
@@ -25,6 +26,7 @@ export const PageSizeSelect: React.FC<PageSizeSelectProps> = ({
   const onValueChange = useCallback(
     (value: string) => {
       const size = Number(value)
+
       if (!isNaN(size)) {
         onPageSizeChange(size)
       }

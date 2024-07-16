@@ -1,17 +1,18 @@
-import { Meta } from '@storybook/react'
 import { useState } from 'react'
-import { Uploader } from '@/components/ui/Uploader/Uploader'
-import { Button } from '@/components/ui/Button'
+
 import ImageIcon from '@/assets/icons/ImageIcon'
+import { Button } from '@/components/ui/Button'
+import { Uploader } from '@/components/ui/Uploader/Uploader'
+import { Meta } from '@storybook/react'
 
 export default {
-  title: 'Components/Uploader',
   component: Uploader,
+  title: 'Components/Uploader',
 } as Meta<typeof Uploader>
 
 export const Default = () => {
   const [file, setFile] = useState<File | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<null | string>(null)
 
   const handleLoadCover = (loadedFile: File) => {
     setFile(loadedFile)
@@ -26,7 +27,7 @@ export const Default = () => {
   return (
     <div style={{ padding: '20px' }}>
       <Uploader onLoadCover={handleLoadCover} onLoadError={handleLoadError}>
-        <Button onClick={() => {}} fullWidth variant={'secondary'}>
+        <Button fullWidth onClick={() => {}} variant={'secondary'}>
           <ImageIcon />
           Open uploader
         </Button>
@@ -35,9 +36,9 @@ export const Default = () => {
         <div>
           <p>Loaded file: {file.name}</p>
           <img
+            alt={'preview'}
             src={URL.createObjectURL(file)}
-            alt="preview"
-            style={{ maxWidth: '200px', marginTop: '10px' }}
+            style={{ marginTop: '10px', maxWidth: '200px' }}
           />
         </div>
       )}

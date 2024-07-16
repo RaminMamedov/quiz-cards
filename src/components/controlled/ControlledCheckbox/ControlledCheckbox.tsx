@@ -2,8 +2,11 @@ import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { Checkbox, CheckboxProps } from '@/components/ui/Checkbox'
 
-type Props<T extends FieldValues> = UseControllerProps<T> &
-  Omit<CheckboxProps, 'errorMessage' | 'name' | 'onBlur' | 'onCheckedChange' | 'ref'>
+type Props<T extends FieldValues> = Omit<
+  CheckboxProps,
+  'errorMessage' | 'name' | 'onBlur' | 'onCheckedChange' | 'ref'
+> &
+  UseControllerProps<T>
 
 export const ControlledCheckbox = <T extends FieldValues>({
   control,

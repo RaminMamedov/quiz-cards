@@ -1,43 +1,43 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
-import { Table } from '../Table'
+import ArrowDownIcon from '@/assets/icons/ArrowDownIcon'
+import ArrowUpIcon from '@/assets/icons/ArrowUpIcon'
+import { Typography } from '@/components/ui/Typography'
+import { clsx } from 'clsx'
 
 import s from './TableHeader.module.scss'
 
-import { Typography } from '@/components/ui/Typography'
-import ArrowUpIcon from '@/assets/icons/ArrowUpIcon'
-import ArrowDownIcon from '@/assets/icons/ArrowDownIcon'
-import { clsx } from 'clsx'
+import { Table } from '../Table'
 
 export type Column = {
   key: string
-  title: string
   sortable?: boolean
+  title: string
 }
 
 export type Sort = {
-  key: string
   direction: 'asc' | 'desc'
+  key: string
 } | null
 
 type Props = Omit<
-  ComponentPropsWithoutRef<typeof Table.Head> & {
+  {
     columns: Column[]
-    sort?: Sort
     onSort?: (sort: Sort) => void
-  },
+    sort?: Sort
+  } & ComponentPropsWithoutRef<typeof Table.Head>,
   'children'
 >
 
 export const TableHeader = forwardRef<ElementRef<typeof Table.Head>, Props>(
-  ({ columns, sort, onSort, ...restProps }, ref): JSX.Element => {
+  ({ columns, onSort, sort, ...restProps }, ref): JSX.Element => {
     const handleSort = (key: string, sortable?: boolean) => () => {
       if (!onSort || !sortable) {
         return
       }
 
       if (sort?.key !== key) {
-        return onSort({ key, direction: 'asc' })
+        return onSort({ direction: 'asc', key })
       }
 
       if (sort.direction === 'desc') {
@@ -45,24 +45,24 @@ export const TableHeader = forwardRef<ElementRef<typeof Table.Head>, Props>(
       }
 
       return onSort({
-        key,
         direction: sort?.direction === 'asc' ? 'desc' : 'asc',
+        key,
       })
     }
 
     return (
       <Table.Head ref={ref} {...restProps}>
         <Table.Row>
-          {columns.map(({ title, key, sortable }) => {
+          {columns.map(({ key, sortable, title }) => {
             const headCellClasses = clsx(sortable && s.activeHeadCell)
 
             return (
               <Table.HeadCell
-                key={key}
                 className={headCellClasses}
+                key={key}
                 onClick={handleSort(key, sortable)}
               >
-                <Typography className={s.sortCell} variant={'subtitle2'} as="span">
+                <Typography as={'span'} className={s.sortCell} variant={'subtitle2'}>
                   {title}
                   {sort && sort.key === key && (
                     <>

@@ -62,6 +62,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   const renderPaginationButton = useCallback(
     (item: number) => {
       const buttonClassName = clsx(s.button, { [s.active]: currentPage === item })
+
       return (
         <button className={buttonClassName} key={item} onClick={() => handlePageChange(item)}>
           {item}

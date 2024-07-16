@@ -1,30 +1,33 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, ReactNode } from 'react'
-import * as ModalPrimitive from '@radix-ui/react-dialog'
-import { AnimatePresence, motion } from 'framer-motion'
-import { modalAnimations } from '@/components/ui/ModalWindow/modalWindowAnimations'
-import { Card } from '@/components/ui/Card'
-import { Typography } from '@/components/ui/Typography'
-import { clsx } from 'clsx'
-import s from './ModalWindow.module.scss'
+import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
+
 import CloseOutline from '@/assets/icons/CloseOutline'
+import { Card } from '@/components/ui/Card'
+import { modalAnimations } from '@/components/ui/ModalWindow/modalWindowAnimations'
+import { Typography } from '@/components/ui/Typography'
+import * as ModalPrimitive from '@radix-ui/react-dialog'
+import { clsx } from 'clsx'
+import { AnimatePresence, motion } from 'framer-motion'
+
+import s from './ModalWindow.module.scss'
 
 export type ModalWindowProps = {
-  trigger: ReactNode
   open: boolean
   setOpen: (open: boolean) => void
   title: string
+  trigger: ReactNode
 } & ComponentPropsWithoutRef<'div'>
 
 export const ModalWindow = forwardRef<ElementRef<'div'>, ModalWindowProps>(
-  ({ trigger, open, setOpen, title, className, children, ...restProps }, ref): JSX.Element => {
+  ({ children, className, open, setOpen, title, trigger, ...restProps }, ref): JSX.Element => {
     const classNames = {
       closeButton: s.closeButton,
       content: clsx(s.content, className),
-      overlay: s.overlay,
       header: s.header,
+      overlay: s.overlay,
     }
+
     return (
-      <ModalPrimitive.Root open={open} onOpenChange={setOpen}>
+      <ModalPrimitive.Root onOpenChange={setOpen} open={open}>
         <ModalPrimitive.Trigger asChild>{trigger}</ModalPrimitive.Trigger>
         <AnimatePresence>
           {open && (
@@ -32,12 +35,12 @@ export const ModalWindow = forwardRef<ElementRef<'div'>, ModalWindowProps>(
               <motion.div {...modalAnimations.overlay}>
                 <ModalPrimitive.Overlay className={classNames.overlay} forceMount />
               </motion.div>
-              <div ref={ref} className={classNames.content} {...restProps}>
+              <div className={classNames.content} ref={ref} {...restProps}>
                 <ModalPrimitive.Content asChild forceMount>
                   <motion.div {...modalAnimations.window}>
                     <Card>
                       <header className={classNames.header}>
-                        <Typography as="h2" variant={'h2'}>
+                        <Typography as={'h2'} variant={'h2'}>
                           {title}
                         </Typography>
                         <ModalPrimitive.Close asChild className={classNames.closeButton}>

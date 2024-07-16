@@ -1,14 +1,14 @@
 import { useForm } from 'react-hook-form'
 
+import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox/ControlledCheckbox'
+import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
 import { Typography } from '@/components/ui/Typography'
-import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox/ControlledCheckbox'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 import s from './SignIn.module.scss'
-import { Button } from '@/components/ui/Button'
 
 const loginSchema = z.object({
   email: z.string().email(),

@@ -5,10 +5,9 @@ import { useState } from 'react'
 import { Pagination } from '@/components/ui/Pagination/Pagination'
 
 export default {
-  title: 'Components/Pagination',
   component: Pagination,
+  title: 'Components/Pagination',
 } as Meta<typeof Pagination>
-
 
 export const DefaultPagination = () => {
   const [pageSize, setPageSize] = useState(5)

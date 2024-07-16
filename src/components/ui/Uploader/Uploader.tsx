@@ -1,8 +1,10 @@
 import { ChangeEvent, ComponentPropsWithoutRef, ReactNode, useRef } from 'react'
+
+import { Typography } from '@/components/ui/Typography'
 import { UploaderPayload, uploaderSchema } from '@/components/ui/Uploader/uploaderSchema'
 import { clsx } from 'clsx'
 import { ZodError } from 'zod'
-import { Typography } from '@/components/ui/Typography'
+
 import s from './Uploader.module.scss'
 
 type UploaderProps = {
@@ -37,15 +39,22 @@ export const Uploader = ({
     }
   }
   const uploaderClassName = clsx(s.uploader, className)
+
   return (
     <Typography
+      as={'label'}
       className={uploaderClassName}
-      variant={'subtitle2'}
-      as="label"
       onClick={() => ref.current?.click()}
+      variant={'subtitle2'}
     >
       {children}
-      <input ref={ref} className={s.input} type="file" onChange={onChangeHandler} {...restProps} />
+      <input
+        className={s.input}
+        onChange={onChangeHandler}
+        ref={ref}
+        type={'file'}
+        {...restProps}
+      />
     </Typography>
   )
 }
