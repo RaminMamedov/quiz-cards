@@ -3,12 +3,12 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Rating } from './Rating'
 
 const meta: Meta<typeof Rating> = {
-  title: 'Components/Rating',
-  component: Rating,
-  tags: ['autodocs'],
   argTypes: {
     rating: Number,
   },
+  component: Rating,
+  tags: ['autodocs'],
+  title: 'Components/Rating',
 }
 
 export default meta
@@ -28,7 +28,7 @@ export const Empty: Story = {
 
 export const Mixed: Story = {
   args: {
-    rating: 3,
     maxRating: 5,
+    rating: 3,
   },
 }

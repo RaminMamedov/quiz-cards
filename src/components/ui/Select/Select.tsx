@@ -30,7 +30,7 @@ type SelectItemProps = {
 }
 
 export const Select = (props: SelectProps) => {
-  const { ariaLabel, disabled, items, placeholder, small, title, value, onValueChange } = props
+  const { ariaLabel, disabled, items, onValueChange, placeholder, small, title, value } = props
   const [open, setOpen] = useState(false)
 
   const classNames = {
@@ -46,8 +46,8 @@ export const Select = (props: SelectProps) => {
         onOpenChange={() => {
           setOpen(!open)
         }}
-        value={value}
         onValueChange={onValueChange}
+        value={value}
       >
         <SelectRadix.Trigger
           aria-label={ariaLabel}
@@ -78,7 +78,7 @@ export const Select = (props: SelectProps) => {
 }
 const SelectItem = React.forwardRef(
   (
-    { children, className, small, ...props }: SelectItemProps & RefAttributes<HTMLDivElement>,
+    { children, className, small, ...props }: RefAttributes<HTMLDivElement> & SelectItemProps,
     forwardedRef: React.LegacyRef<HTMLDivElement> | undefined
   ) => {
     const classNames = {

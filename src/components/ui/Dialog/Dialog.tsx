@@ -1,28 +1,29 @@
 import { ReactNode, useState } from 'react'
 
-import s from './Dialog.module.scss'
+import { Button } from '@/components/ui/Button'
 import { ModalWindow } from '@/components/ui/ModalWindow'
 import { Typography } from '@/components/ui/Typography'
-import { Button } from '@/components/ui/Button'
 
-type ActionDialog = 'removeDeck' | 'removeCard'
+import s from './Dialog.module.scss'
+
+type ActionDialog = 'removeCard' | 'removeDeck'
 
 export type DialogProps = {
-  trigger: ReactNode
-  modalHeaderTitle: string
-  itemName: string
   action: ActionDialog
   buttonTitle: string
+  itemName: string
+  modalHeaderTitle: string
   onClick: () => void
+  trigger: ReactNode
 }
 
 export const Dialog = ({
-  trigger,
-  modalHeaderTitle,
   action,
-  itemName,
   buttonTitle,
+  itemName,
+  modalHeaderTitle,
   onClick,
+  trigger,
 }: DialogProps): JSX.Element => {
   const [open, setOpen] = useState(false)
 
@@ -36,13 +37,13 @@ export const Dialog = ({
   }
 
   return (
-    <ModalWindow trigger={trigger} open={open} setOpen={setOpen} title={modalHeaderTitle}>
+    <ModalWindow open={open} setOpen={setOpen} title={modalHeaderTitle} trigger={trigger}>
       <div className={s.root}>
         <Typography className={s.text} variant={'body1'}>
           {getDialogText(action, itemName)}
         </Typography>
         <div className={s.buttonContainer}>
-          <Button type="button" variant={'secondary'} onClick={onClose}>
+          <Button onClick={onClose} type={'button'} variant={'secondary'}>
             Cancel
           </Button>
           <Button onClick={onButtonClickHandler}>{buttonTitle}</Button>
@@ -56,14 +57,14 @@ const getDialogText = (action: ActionDialog, itemName?: string) => {
   const dialogVariants: {
     [key in ActionDialog]: ReactNode
   } = {
-    removeDeck: (
-      <>
-        Do you really want to remove <b>{itemName}?</b> <br></br> All cards will be deleted.
-      </>
-    ),
     removeCard: (
       <>
         Do you really want to remove this card from deck. <br></br>Card will be deleted.
+      </>
+    ),
+    removeDeck: (
+      <>
+        Do you really want to remove <b>{itemName}?</b> <br></br> All cards will be deleted.
       </>
     ),
   }

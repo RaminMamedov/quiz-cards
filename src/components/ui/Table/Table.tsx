@@ -1,14 +1,15 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
+
+import { Typography } from '@/components/ui/Typography'
+import { clsx } from 'clsx'
 
 import s from './Table.module.scss'
-import { clsx } from 'clsx'
-import { Typography } from '@/components/ui/Typography'
 
 const Root = forwardRef<ElementRef<'table'>, ComponentPropsWithoutRef<'table'>>(
   ({ className, ...restProps }, ref): JSX.Element => {
     const rootClasses = clsx(s.root, className)
 
-    return <table ref={ref} className={rootClasses} {...restProps} />
+    return <table className={rootClasses} ref={ref} {...restProps} />
   }
 )
 
@@ -16,7 +17,7 @@ const Head = forwardRef<ElementRef<'thead'>, ComponentPropsWithoutRef<'thead'>>(
   ({ className, ...restProps }, ref): JSX.Element => {
     const headClasses = clsx(s.thead, className)
 
-    return <thead ref={ref} className={headClasses} {...restProps} />
+    return <thead className={headClasses} ref={ref} {...restProps} />
   }
 )
 
@@ -24,7 +25,7 @@ const Body = forwardRef<ElementRef<'tbody'>, ComponentPropsWithoutRef<'tbody'>>(
   ({ className, ...restProps }, ref): JSX.Element => {
     const bodyClasses = clsx(s.body, className)
 
-    return <tbody ref={ref} className={bodyClasses} {...restProps} />
+    return <tbody className={bodyClasses} ref={ref} {...restProps} />
   }
 )
 
@@ -32,7 +33,7 @@ const Row = forwardRef<ElementRef<'tr'>, ComponentPropsWithoutRef<'tr'>>(
   ({ className, ...restProps }, ref): JSX.Element => {
     const rowClasses = clsx(s.row, className)
 
-    return <tr ref={ref} className={rowClasses} {...restProps} />
+    return <tr className={rowClasses} ref={ref} {...restProps} />
   }
 )
 
@@ -40,7 +41,7 @@ const HeadCell = forwardRef<ElementRef<'th'>, ComponentPropsWithoutRef<'th'>>(
   ({ className, ...restProps }, ref): JSX.Element => {
     const headCellClasses = clsx(s.headCell, className)
 
-    return <th ref={ref} className={headCellClasses} {...restProps} />
+    return <th className={headCellClasses} ref={ref} {...restProps} />
   }
 )
 
@@ -48,34 +49,34 @@ const Cell = forwardRef<ElementRef<'td'>, ComponentPropsWithoutRef<'td'>>(
   ({ className, ...restProps }, ref): JSX.Element => {
     const cellClasses = clsx(s.cell, className)
 
-    return <td ref={ref} className={cellClasses} {...restProps} />
+    return <td className={cellClasses} ref={ref} {...restProps} />
   }
 )
 
 type EmptyProps = {
   children?: ReactNode
-  text?: string
   className?: string
+  text?: string
 } & ComponentPropsWithoutRef<'div'>
 
 const Empty = forwardRef<ElementRef<'div'>, EmptyProps>(
   (
     {
-      text = 'This deck is empty. Click add new deck to fill this deck',
       children,
       className,
+      text = 'This deck is empty. Click add new deck to fill this deck',
       ...restProps
     },
     ref
   ): JSX.Element => {
     const classNames = {
-      root: clsx(s.empty, className),
       emptyDescription: s.emptyDescription,
+      root: clsx(s.empty, className),
     }
     const emptyClasses = clsx(s.empty, className)
 
     return (
-      <div ref={ref} className={emptyClasses} {...restProps}>
+      <div className={emptyClasses} ref={ref} {...restProps}>
         <Typography className={classNames.emptyDescription} variant={'body1'}>
           {text}
         </Typography>
@@ -85,4 +86,4 @@ const Empty = forwardRef<ElementRef<'div'>, EmptyProps>(
   }
 )
 
-export const Table = { Root, Head, Body, Row, HeadCell, Cell, Empty }
+export const Table = { Body, Cell, Empty, Head, HeadCell, Root, Row }

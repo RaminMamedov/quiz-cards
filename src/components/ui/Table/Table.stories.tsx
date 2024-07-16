@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { Table } from '@/components/ui/Table/Table'
-import PlayCircleOutline from '@/assets/icons/PlayCircleOutline'
 import EditOutline from '@/assets/icons/EditOutline'
+import PlayCircleOutline from '@/assets/icons/PlayCircleOutline'
 import TrashOutline from '@/assets/icons/TrashOutline'
 import { Button } from '@/components/ui/Button'
+import { Table } from '@/components/ui/Table/Table'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Table.Root> = {
-  title: 'Components/Table',
   component: Table.Root,
   tags: ['autodocs'],
+  title: 'Components/Table',
 }
 
 export default meta
