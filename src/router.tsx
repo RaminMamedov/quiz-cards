@@ -7,12 +7,17 @@ import {
 } from 'react-router-dom'
 
 import { App } from '@/App'
-import { SignIn } from '@/components/auth/SignIn'
+import { FormFields, SignIn } from '@/components/auth/SignIn'
 import { useGetDecksQuery } from '@/services/decks/decksService'
+
+const handleSignInSubmit = (data: FormFields) => {
+  console.log('Form submitted', data)
+  // Дополнительная логика для обработки данных формы
+}
 
 const publicRoutes: RouteObject[] = [
   {
-    element: <SignIn />,
+    element: <SignIn onSubmit={handleSignInSubmit} />,
     path: '/sign-in',
   },
   {
