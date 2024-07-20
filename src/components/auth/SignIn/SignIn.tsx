@@ -3,12 +3,13 @@ import { useForm } from 'react-hook-form'
 import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox/ControlledCheckbox'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
-import { Input } from '@/components/ui/Input'
 import { Typography } from '@/components/ui/Typography'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 import s from './SignIn.module.scss'
+import { ControlledInput } from '@/components/controlled/ControlledInput'
+import { Link } from 'react-router-dom'
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -18,27 +19,46 @@ const loginSchema = z.object({
 
 export type FormFields = z.infer<typeof loginSchema>
 
-export const SignIn = () => {
-  const { control, handleSubmit, register } = useForm<FormFields>({
+type Props = {
+  onSubmit: (data: FormFields) => void
+}
+
+export const SignIn = ({ onSubmit }: Props) => {
+  const { control, handleSubmit } = useForm<FormFields>({
     resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = (data: FormFields) => {
-    console.log(data)
-  }
-
   return (
-    <Card className={s.card}>
-      <Typography as={'h1'} className={s.h1} variant={'h1'}>
+    <Card className={s.formWrapper}>
+      <Typography as={'h1'} className={s.formHeader} variant={'h1'}>
         Sign In
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/*<DevTool control={control} />*/}
-        <Input className={s.input} label={'Email'} {...register('email', { minLength: 8 })} />
-        <Input className={s.input} label={'Password'} {...register('password')} type={'password'} />
+        <ControlledInput
+          control={control}
+          name="email"
+          label="Email"
+          className={s.input}
+          placeholder="Email"
+          rules={{ required: 'Email is required', minLength: 8 }}
+        />
+        <ControlledInput
+          control={control}
+          name="password"
+          label="Password"
+          type="password"
+          className={s.input}
+          placeholder="Password"
+          rules={{ required: 'Password is required', minLength: 3 }}
+        />
         <ControlledCheckbox control={control} label={'Remember me'} name={'rememberMe'} />
         <div className={s.forgotLink}>
-          <Typography as={'a'} href={'/recover-password'} variant={'body2'}>
+          <Typography
+            as={Link}
+            className={s.forgotPasswordLink}
+            to={'/recover-password'}
+            variant={'body2'}
+          >
             Forgot password?
           </Typography>
         </div>
@@ -48,7 +68,7 @@ export const SignIn = () => {
         <Typography className={s.account} variant={'body2'}>
           Don`t have an account?
         </Typography>
-        <Typography as={'a'} className={s.signupLink} href={'/sign-up'} variant={'body2'}>
+        <Typography as={Link} className={s.signupLink} to={'/sign-up'} variant={'link1'}>
           Sign Up
         </Typography>
       </form>
