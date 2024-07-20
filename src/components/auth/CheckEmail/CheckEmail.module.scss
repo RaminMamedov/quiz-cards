@@ -1,0 +1,23 @@
+.formWrapper {
+  max-width: 420px;
+  padding: 33px 36px;
+  text-align: center;
+}
+
+.formHeader {
+  margin: 0 0 28px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 19px;
+}
+
+.instructions {
+  margin-bottom: 65px;
+  color: var(--color-light-900);
+  text-align: center;
+  opacity: 0.5;
+}

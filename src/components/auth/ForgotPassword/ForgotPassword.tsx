@@ -4,7 +4,6 @@ import { Card } from '@/components/ui/Card'
 import { Typography } from '@/components/ui/Typography'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-
 import s from './ForgotPassword.module.scss'
 import { ControlledInput } from '@/components/controlled/ControlledInput'
 import { Link } from 'react-router-dom'
