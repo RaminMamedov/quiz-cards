@@ -85,12 +85,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             value={value}
           />
           {isPasswordType && (
-            <button className={s.button} disabled={rest.disabled} onClick={toggleShowPassword}>
+            <button
+              className={s.button}
+              disabled={rest.disabled}
+              onClick={toggleShowPassword}
+              type="button"
+            >
               {showPassword ? <EyeOffOutline /> : <EyeOutline />}
             </button>
           )}
           {isShowClear && (
-            <button className={s.button} onClick={onClearClick}>
+            <button className={s.button} onClick={onClearClick} type="button">
               <CloseOutline />
             </button>
           )}
