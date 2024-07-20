@@ -1,0 +1,33 @@
+.formWrapper {
+  max-width: 420px;
+  padding: 33px 36px;
+  text-align: center;
+}
+
+.signInLink {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-500);
+
+  &:visited {
+    color: var(--color-accent-500);
+  }
+}
+
+.input {
+  margin: 20px 0;
+  text-align: left;
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+
+.formHeader {
+  margin: 0 0 28px;
+}
+
+.account {
+  margin: 20px 0 5px;
+  color: var(--color-light-900);
+}
