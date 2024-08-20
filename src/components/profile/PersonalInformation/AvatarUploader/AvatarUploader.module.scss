@@ -1,0 +1,28 @@
+.root {
+  position: relative;
+
+  .uploader {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+
+    .editAvatar {
+      all: unset;
+      background-color: var(--color-dark-300);
+      border-radius: 0.4rem;
+      box-shadow: 0 2px 10px 0 rgb(109 109 109 / 25%);
+      cursor: pointer;
+      padding: 0.4rem;
+      display: inline-flex;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:focus-visible {
+        border: 1px solid var(--color-info-700);
+      }
+    }
+  }
+}
