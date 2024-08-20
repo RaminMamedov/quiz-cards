@@ -49,6 +49,7 @@ export const Uploader = ({
     >
       {children}
       <input
+        accept={'image/*'}
         className={s.input}
         onChange={onChangeHandler}
         ref={ref}
